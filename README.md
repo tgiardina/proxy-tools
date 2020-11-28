@@ -1,18 +1,19 @@
-# ProxyTools
 
-Thin wrappers that use JavaScript's `Proxy` class.
+## ProxyTools
 
-## Documentation
+[![tgiardina](https://circleci.com/gh/tgiardina/proxy-tools.svg?style=shield)](https://circleci.com/gh/tgiardina/proxy-tools.svg?style=shield)
+
+Thin wrappers that take advantage of JavaScript's `Proxy` class.
+
+### Documentation
 Jump to tool:
-- [addAirlock](#addairlock)
-- [addBouncer](#addbouncer)
-- [addDetour](#adddetour)
-- [addLogger](#addlogger)
-- [addQueue](#addqueue)
+- [addAirlock](#addairlockttarget-t-unlockers-typeof-t-ejectors-typeof-t)
+- [addBouncer](#addbouncerttarget-t-isavailable---boolean)
+- [addDetour](#adddetourttarget-t-detour-prop-keyof-t-args-unknown--void)
+- [addLogger](#addloggerttarget-t-logger-str-string--void-location-string)
+- [addQueue](#addqueuettarget-t-errhandler-err-error--void)
 
-## addAirlock
-
-### `addAirlock<T>(target: T, unlockers: (typeof T)[], ejectors: (typeof T)[])`
+#### `addAirlock<T>(target: T, unlockers: (typeof T)[], ejectors: (typeof T)[])`
 - Stores all calls to `target` that don't match either `unlockers` or `ejectors`.
 - If a method is called that matches `unlockers`, calls all stored methods and the unlocker method (in order).
 - If a method is called that matches `ejectors`, forgets all stored methods and then stores the ejector method.
@@ -28,9 +29,7 @@ counter.increment();
 assert.equals(counter.count, 1);
 ```
 
-## addBouncer
-
-### `addBouncer<T>(target: T, isAvailable: () => boolean)`
+#### `addBouncer<T>(target: T, isAvailable: () => boolean)`
 
 - Blocks all method calls to `target` while is `isAvailable` returns false.
 
@@ -47,9 +46,8 @@ counter.decrement();
 assert.equals(counter.count, 0);
 ```
 
-## addDetour
 
-### `addDetour<T>(target: T, detour: (prop: keyof T, args?: unknown[]) => void)`
+#### `addDetour<T>(target: T, detour: (prop: keyof T, args?: unknown[]) => void)`
 
 - Provides `detour` with `target`'s traffic.
 - If a property of `target` is being accessed, will pass the callback `callback(${propertyName}, undefined)`.
@@ -65,9 +63,7 @@ counter.count
 // > count undefined
 ```
 
-## addLogger
-
-### `addLogger<T>(target: T, logger: (str: string) => void, location?: string)`
+#### `addLogger<T>(target: T, logger: (str: string) => void, location?: string)`
 
 - Logs `target`'s traffic.
 - If property of `target` is being access, will pass logger `${location}.${propertyName}`.
@@ -83,9 +79,7 @@ counter.count
 // > counter.count``
 ```
 
-## addQueue
-
-### `addQueue<T>(target: T, errHandler?: (err: Error) => void)`
+#### `addQueue<T>(target: T, errHandler?: (err: Error) => void)`
 
 - Ensures that `async` methods are executed in order.
 - Passes unhandled Promise errors to `errHandler`.
