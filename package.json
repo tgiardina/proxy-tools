@@ -1,8 +1,20 @@
 {
-  "name": "proxy-tools",
-  "private": true,
-  "main": "build/index.js",
-  "types": "src/index.ts",
+  "name": "@tgiardina/proxy-tools",
+  "version": "0.0.1",
+  "description": "Thin wrappers that use JavaScript's Proxy class.",  
+  "main": "dist/index.js",
+  "types": "dist/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tgiardina/proxy-tools.git"
+  },  
+  "scope": "@tgiardina",
+  "author": "https://github.com/tgiardina/",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/tgiardina/proxy-tools/issues"
+  },
+  "homepage": "https://github.com/tgiardina/proxy-tools#readme",    
   "scripts": {
     "test": "jest --coverage",
     "build": "tsc --build",
