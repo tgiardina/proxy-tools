@@ -1,0 +1,29 @@
+{
+  "name": "proxy-tools",
+  "private": true,
+  "main": "build/index.js",
+  "types": "src/index.ts",
+  "scripts": {
+    "test": "jest --coverage",
+    "build": "tsc --build",
+    "format": "prettier --write src",
+    "lint": "eslint src",
+    "mutate": "stryker run",    
+    "precommit": "prettier --check src && npm run lint && npm run test && npm run mutate"    
+  },
+  "devDependencies": {
+    "@stryker-mutator/core": "^4.1.2",
+    "@stryker-mutator/jest-runner": "^4.1.2",
+    "@types/jest": "^26.0.15",
+    "@types/lodash": "^4.14.165",
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "eslint": "^7.12.1",
+    "jest": "^26.6.1",
+    "prettier": "^2.1.2",
+    "ts-jest": "^26.4.3",
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20"
+  }
+}
