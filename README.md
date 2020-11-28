@@ -3,7 +3,7 @@
 
 [![tgiardina](https://circleci.com/gh/tgiardina/proxy-tools.svg?style=shield)](https://circleci.com/gh/tgiardina/proxy-tools.svg?style=shield)
 
-Thin wrappers that take advantage of JavaScript's `Proxy` class.
+Thin wrappers that use JavaScript's `Proxy` class.
 
 ### Documentation
 Jump to tool:
