@@ -16,7 +16,7 @@ export default function addInit<T extends object>(
         }
         if (isInit) {
           return function (...args: unknown[]) {
-            og.apply(getTarget, args);
+            return og.apply(getTarget, args);
           };
         } else {
           return () => {
