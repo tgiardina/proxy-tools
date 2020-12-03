@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Thin wrappers that use JavaScript's Proxy class.",  
   "main": "dist/index.js",
-  "types": "dist/index.ts",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tgiardina/proxy-tools.git"
