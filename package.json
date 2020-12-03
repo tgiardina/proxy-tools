@@ -1,6 +1,6 @@
 {
   "name": "@tgiardina/proxy-tools",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Thin wrappers that use JavaScript's Proxy class.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
